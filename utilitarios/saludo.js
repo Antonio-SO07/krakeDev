@@ -13,6 +13,8 @@ saludar=function(){
     mostrarTexto("lblResultado",mensajeBienvenida)
 
     mostrarImagen("imgSaludo","./imagenes/oli.gif")
+
+    mostrarTextoEnCaja("txtNombre","")
 }
 
 
@@ -26,6 +28,14 @@ mostrarTexto=function(idComponente,mensaje){
     componente=document.getElementById(idComponente);
     componente.innerText=mensaje;
 }
+
+mostrarTextoEnCaja=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.value=mensaje;
+}
+
+
 recuperarTexto=function(idComponente){
     let componente;
     let valorIngresado;
