@@ -5,5 +5,9 @@ calcularPromedioNotas=function(){
     let promedio=calcularPromedio(nota1,nota2,nota3);
     let cmpPromedio=promedio.toFixed(2);
     mostrarTexto("lblResultado",cmpPromedio);
-    
+    if(cmpPromedio>7){
+        mostrarImagen("lblImagen","./imagenes/gilcat.gif")
+    }else{
+        mostrarImagen("lblImagen","./imagenes/fracaso.gif")
+    }
 }
