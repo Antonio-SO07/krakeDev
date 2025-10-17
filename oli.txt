@@ -1,0 +1,127 @@
+obtenerProvincia = function (placa) {
+
+    let letra = placa.charAt(0).toUpperCase();
+    let provincias = {
+        A: "Azuay",
+        B: "Bolívar",
+        C: "Carchi",
+        P: "Pichincha",
+        G: "Guayas"
+    };
+
+
+    if (provincias[letra]) {
+        return provincias[letra];
+    } else {
+        return null;
+    }
+}
+
+obtenerTipoVehiculo = function (placa) {
+
+    let letra = placa.charAt(1).toUpperCase();
+    let tipos = {
+        A: "Vehículo comercial",
+        P: "Vehículo particular",
+        T: "Taxi",
+        M: "Moto",
+
+    };
+
+
+    if (tipos[letra]) {
+        return tipos[letra];
+    } else {
+        return null;
+    }
+}
+
+obtenerDiaPicoYPlaca = function (placa) {
+
+    let ultimoCaracter = placa.charAt(placa.length - 1);
+
+
+    let diasPicoYPlaca = {
+        "1": "Lunes",
+        "2": "Lunes",
+        "3": "Martes",
+        "4": "Martes",
+        "5": "Miércoles",
+        "6": "Miércoles",
+        "7": "Jueves",
+        "8": "Jueves",
+        "9": "Viernes",
+        "0": "Viernes"
+    };
+
+
+    if (diasPicoYPlaca[ultimoCaracter]) {
+        return diasPicoYPlaca[ultimoCaracter];
+    } else {
+        return null;
+    }
+}
+
+limpiar = function () {
+
+    mostrarTexto("txtPlaca", "");
+    mostrarTexto("mensajeValidacion", "");
+    mostrarTexto("infoProvincia", "");
+    mostrarTexto("infoTipo", "");
+    mostrarTexto("infoDia", "");
+}
+
+
+
+
+
+validarPlaca = function () {
+    let placa = document.getElementById("txtPlaca").value;
+
+    let erroresEstructura = validarEstructura(placa);
+
+    let mensaje = document.getElementById("mensajeValidacion");
+    let infoProvincia = document.getElementById("infoProvincia");
+    let infoTipo = document.getElementById("infoTipo");
+    let infoDia = document.getElementById("infoDia");
+
+    if (erroresEstructura == null) {
+        mensaje.innerText = "ESTRUCTURA VALIDA";
+
+        let provincia = obtenerProvincia(placa);
+        if (provincia != null) {
+            infoProvincia.innerText = "Provincia: " + provincia;
+        } else {
+            infoProvincia.innerText = "Provincia incorrecta";
+        }
+
+        let tipo = obtenerTipoVehiculo(placa);
+        if (tipo != null) {
+            infoTipo.innerText = "Tipo de Vehículo: " + tipo;
+        } else {
+            infoTipo.innerText = "Tipo de vehículo incorrecto";
+        }
+
+        let dia = obtenerDiaPicoYPlaca(placa);
+        if (dia != null) {
+            infoDia.innerText = "Día de pico y placa: " + dia;
+        } else {
+            infoDia.innerText = "No se pudo determinar el día de pico y placa.";
+        }
+
+    } else {
+        mensaje.innerText = "ESTRUCTURA INCORRECTA\nErrores: " + erroresEstructura;
+        infoProvincia.innerText = "";
+        infoTipo.innerText = "";
+        infoDia.innerText = "";
+    }
+}
+
+
+
+
+
+
+
+
+
