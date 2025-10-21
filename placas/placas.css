@@ -21,6 +21,12 @@ body {
 }
 .validacion {
     color: yellow;
-    font-style: italic;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.provincia {
+    color: green;
+    font-style: oblique;
     font-size: 16px;
 }
