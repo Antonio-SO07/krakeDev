@@ -11,6 +11,9 @@
 
 <body>
     <div class="principal">
+        <div class="logoAnt">
+            <img src="./imagenes/ant.jpg" width="400px" />
+        </div>
         <div class="contenido">
             <div class="titulo">
                 VALIDAR PLACAS
@@ -19,17 +22,21 @@
                 <div class="tituloCampo">
                     Ingrese la placa
                 </div>
-                <div>
+                <div class="ingresoDatos">
                     <input type="text" class="cajaTexto" id="txtPlaca" />
                     <div class="error" id="lblErrorPlaca"> </div>
                     <div class="validacion" id="lblValidacion"> </div>
                     <div class="provincia" id="lblProvincia"> </div>
                     <div class="vehiculo" id="lblTipoVehiculo"> </div>
+                    <div class="pico" id="lblPicoYPlaca"> </div>
                 </div>
             </div>
             <div class="botones">
-                <div>
+                <div class="contenedorBoton">
                     <input type="button" value="VALIDAR" class="estiloBoton" onclick="validarPlaca()" />
+                </div>
+                <div class="contenedorBoton">
+                    <input type="button" value="LIMPIAR" class="estiloBoton" onclick="limpiar()" />
                 </div>
             </div>
         </div>

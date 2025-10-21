@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: darkcyan;
     background-size: cover;
     margin-left: 0px;
     margin-right: 0px;
@@ -7,13 +7,37 @@ body {
 
 .principal {
     display: flex;
-    background-color: rgba(240, 248, 255, 0.8);
+    background-color: rgba(240, 248, 255, 0.89);
     margin-left: 0px;
+    justify-content: center;
     margin-right: 0px;
     flex-direction: row;
-    margin-top: 100px;
+    margin-top: 200px;
 
 }
+
+.logoAnt {   
+    display: flex;
+    flex: 1;
+    font-size: 80px;
+    justify-content: right;
+
+}
+
+
+.contenido{
+    display: grid;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+    place-items: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    height: 100px;
+    
+}
+
 .error {
     color: red;
     font-style: italic;
@@ -34,4 +58,38 @@ body {
     color: darkblue;
     font-style: oblique;
     font-size: 16px;
+}
+.placa {
+    color: darkgray;
+    font-style: oblique;
+    font-size: 16px;
+}
+.estiloBoton:active {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+
+}
+.estiloBoton:hover {
+    background-color: darkcyan;
+    color: white;
+    border: 1px;
+    border-color: #4CAF50;
+    border-radius: 5px;
+}
+.contenedorBoton {
+    display: flex;
+    flex: 1;
+    justify-items: center;
+    display: grid;
+    text-align: center;
+    justify-content: right;
+    height: 30px;
+    margin-left: 400px;
+    margin-top: 10px;
+    
 }

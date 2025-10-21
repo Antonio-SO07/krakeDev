@@ -143,6 +143,9 @@ obtenerProvincia = function (placa) {
         mostrarTexto("lblProvincia", "Zamora Chinchipe");
         placas = false;
     }
+    if (placas == true) {
+        mostrarTexto("lblProvincia", "");
+    }
 
     return !placas;
 
@@ -186,10 +189,59 @@ obtenerTipoVehiculo = function (placa) {
         mostrarTexto("lblTipoVehiculo", "Vehiculos de servicio oficial o gubernamental");
         placas = false;
     }
-    if(placas == true){
+    if (placas == true) {
         mostrarTexto("lblTipoVehiculo", "");
     }
 
     return !placas;
 
+}
+
+obtenerDiaPicoYPlaca = function (placa) {
+    let placas = true;
+    let cmpPlaca = placa.charCodeAt(placa.length - 1);
+    if (cmpPlaca == 49) {
+        mostrarTexto("lblPicoYPlaca", "LUNES");
+        placas = false;
+    }
+    if (cmpPlaca == 50) {
+        mostrarTexto("lblPicoYPlaca", "LUNES");
+        placas = false;
+    }
+    if (cmpPlaca == 51) {
+        mostrarTexto("lblPicoYPlaca", "MARTES");
+        placas = false;
+    }
+    if (cmpPlaca == 52) {
+        mostrarTexto("lblPicoYPlaca", "MARTES");
+        placas = false;
+    }
+    if (cmpPlaca == 53) {
+        mostrarTexto("lblPicoYPlaca", "MIERCOLES");
+        placas = false;
+    }
+    if (cmpPlaca == 54) {
+        mostrarTexto("lblPicoYPlaca", "MIERCOLES");
+        placas = false;
+    }
+    if (cmpPlaca == 55) {
+        mostrarTexto("lblPicoYPlaca", "JUEVES");
+        placas = false;
+    }
+    if (cmpPlaca == 56) {
+        mostrarTexto("lblPicoYPlaca", "JUEVES");
+        placas = false;
+    }
+    if (cmpPlaca == 57) {
+        mostrarTexto("lblPicoYPlaca", "VIERNES");
+        placas = false;
+    }
+    if (cmpPlaca == 48) {
+        mostrarTexto("lblPicoYPlaca", "VIERNES");
+        placas = false;
+    }
+    if (placas == true) {
+        mostrarTexto("lblPicoYPlaca", "");
+    }
+    return !placas;
 }
