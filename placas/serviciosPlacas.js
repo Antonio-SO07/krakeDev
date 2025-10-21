@@ -147,3 +147,49 @@ obtenerProvincia = function (placa) {
     return !placas;
 
 }
+
+
+
+
+obtenerTipoVehiculo = function (placa) {
+    let placas = true;
+    let cmpPlaca = placa.charCodeAt(1);
+    if (cmpPlaca == 65) {
+        mostrarTexto("lblTipoVehiculo", "Vehiculo Particular");
+        placas = false;
+    }
+    if (cmpPlaca == 66) {
+        mostrarTexto("lblTipoVehiculo", "Vehiculo Particular");
+        placas = false;
+    }
+    if (cmpPlaca == 67) {
+        mostrarTexto("lblTipoVehiculo", "Vehiculo Particular");
+        placas = false;
+    }
+    if (cmpPlaca == 72) {
+        mostrarTexto("lblTipoVehiculo", "Vehiculo Particular");
+        placas = false;
+    }
+    if (cmpPlaca == 80) {
+        mostrarTexto("lblTipoVehiculo", "Vehiculo de servicios publicos");
+        placas = false;
+    }
+    if (cmpPlaca == 84) {
+        mostrarTexto("lblTipoVehiculo", "Vehiculo de transporte de carga");
+        placas = false;
+    }
+    if (cmpPlaca == 77) {
+        mostrarTexto("lblTipoVehiculo", "Motocicletas");
+        placas = false;
+    }
+    if (cmpPlaca == 79) {
+        mostrarTexto("lblTipoVehiculo", "Vehiculos de servicio oficial o gubernamental");
+        placas = false;
+    }
+    if(placas == true){
+        mostrarTexto("lblTipoVehiculo", "");
+    }
+
+    return !placas;
+
+}

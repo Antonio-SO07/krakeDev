@@ -3,8 +3,9 @@ validarPlaca = function () {
     console.log(placas);
     let erroresEstructura = validarEstructura(placas);
     let provincia = obtenerProvincia(placas);
+    let vehiculo = obtenerTipoVehiculo(placas);
 
-    if (erroresEstructura && provincia == true) {   
+    if (erroresEstructura && provincia && vehiculo == true) {   
         mostrarTexto("lblValidacion","ESTRUCTURA VALIDA");
     } else {
         mostrarTexto("lblValidacion","ESTRUCUTRA INCORRECTA");
