@@ -1,9 +1,5 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
-let palabraSecreta = "";
-
-
-
-
+let palabraSecreta;
 
 esMayuscula = function (caracter) {
     let cmpCarac;
@@ -16,15 +12,15 @@ esMayuscula = function (caracter) {
 }
 
 guardarPalabra = function () {
-    let palabra = recuperarTexto("txtSecreta");
-    console.log(palabra);
-    if (palabra.length !== 5) {
+    palabraSecreta = recuperarTexto("txtSecreta");
+    console.log(palabraSecreta);
+    if (palabraSecreta.length !== 5) {
         alert("Debe ingresar una palabra de 5 letras mayúsculas");
         return;
     }
 
-    for (let i = 0; i < palabra.length; i++) {
-        if (!esMayuscula(palabra[i])) {
+    for (let i = 0; i < palabraSecreta.length; i++) {
+        if (!esMayuscula(palabraSecreta[i])) {
             alert("Debe ingresar una palabra de 5 letras mayúsculas");
             return;
         }
@@ -33,31 +29,43 @@ guardarPalabra = function () {
 
 
 mostrarLetra = function (letra, posicion) {
-    let divs = ["div0", "div1", "div2", "div3", "div4"];
-    if (posicion >= 0 && posicion < divs.length) {
-        document.getElementById(divs[posicion]).innerText = letra;
+    
+    if(posicion == 0){
+        console.log(letra)
+        mostrarTexto("div0",letra);
     }
+    if(posicion == 1){
+        mostrarTexto("div1",letra);
+    }
+    if(posicion == 2){
+        mostrarTexto("div2",letra);
+    }
+    if(posicion == 3){
+        mostrarTexto("div3",letra);
+    }
+    if(posicion == 4){
+        mostrarTexto("div4",letra);
+    }
+
 }
 
 
 validar = function (letra) {
-    let letrasEncontradas = false;
+    let letrasEncontradas = 0;
     for (let i = 0; i < palabraSecreta.length; i++) {
         if (palabraSecreta[i] == letra) {
             mostrarLetra(letra, i);
-            coincidenciasEnLaPalabra++;
-            letrasEncontradas = true;
+            letrasEncontradas++;
         }
     }
+
 }
 
 
-ingresarLetra = function() {
-    let letra = recuperarTexto("txtLetra");
-
-    if (letra == letra.toUpperCase() && letra !== "") {
+ingresarLetra=function(){
+    let letra=recuperarTexto("txtLetra");
+    if(esMayuscula(letra)){
         validar(letra);
-        document.getElementById('txtLetra').value = ''; 
     } else {
         alert("SOLO SE ACEPTAN MAYUSCULAS");
     }
