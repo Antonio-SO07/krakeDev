@@ -38,3 +38,15 @@ mostrarLetra = function (letra, posicion) {
         document.getElementById(divs[posicion]).innerText = letra;
     }
 }
+
+
+validar = function (letra) {
+    let letrasEncontradas = false;
+    for (let i = 0; i < palabraSecreta.length; i++) {
+        if (palabraSecreta[i] == letra) {
+            mostrarLetra(letra, i);
+            coincidenciasEnLaPalabra++;
+            letrasEncontradas = true;
+        }
+    }
+}
