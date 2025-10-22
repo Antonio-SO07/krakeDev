@@ -30,3 +30,11 @@ guardarPalabra = function () {
         }
     }
 }
+
+
+mostrarLetra = function (letra, posicion) {
+    let divs = ["div0", "div1", "div2", "div3", "div4"];
+    if (posicion >= 0 && posicion < divs.length) {
+        document.getElementById(divs[posicion]).innerText = letra;
+    }
+}
