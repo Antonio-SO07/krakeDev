@@ -50,3 +50,15 @@ validar = function (letra) {
         }
     }
 }
+
+
+ingresarLetra = function() {
+    let letra = recuperarTexto("txtLetra");
+
+    if (letra == letra.toUpperCase() && letra !== "") {
+        validar(letra);
+        document.getElementById('txtLetra').value = ''; 
+    } else {
+        alert("SOLO SE ACEPTAN MAYUSCULAS");
+    }
+}
