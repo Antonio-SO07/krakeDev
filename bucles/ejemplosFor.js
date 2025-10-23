@@ -1,6 +1,6 @@
-mostarNumeros = function(){
+mostarNumeros = function () {
     console.log("antes del for");
-    for(let i=0;i<4;i++){
+    for (let i = 1; i < 5; i++) {
         console.log(i)
     }
 
@@ -12,9 +12,9 @@ mostarNumeros = function(){
 
 
 
-mostarNumeros2=function(){
+mostarNumeros2 = function () {
     console.log("antes del for");
-    for(let indice = 1;indice<=5;indice++){
+    for (let indice = 1; indice <= 5; indice++) {
         console.log(indice);
     }
 
@@ -25,9 +25,9 @@ mostarNumeros2=function(){
 }
 
 
-mostrarPares=function(){
+mostrarPares = function () {
     console.log("antes del for");
-    for(let x=2;x<=10;x+=2){
+    for (let x = 2; x <= 10; x += 2) {
         console.log(x);
     }
 
@@ -38,10 +38,10 @@ mostrarPares=function(){
 
 
 
-mostrarInverso=function(){
+mostrarInverso = function () {
     console.log("antes del for ");
 
-    for(let i=10;i>=0;i--){
+    for (let i = 10; i >= 0; i--) {
         console.log(i);
     }
 
@@ -51,19 +51,19 @@ mostrarInverso=function(){
 
 
 
-hackearNasaPelis=function(){
-    for(let porcentaje=0;porcentaje<=100;porcentaje+=10){
-        console.log("hackeando NASA "+porcentaje +"%")
+hackearNasaPelis = function () {
+    for (let porcentaje = 0; porcentaje <= 100; porcentaje += 10) {
+        console.log("hackeando NASA " + porcentaje + "%")
     }
     console.log("La nasa ha sido hackeada XD")
 }
 
 
 
-mostrarImpares=function(){
+mostrarImpares = function () {
     console.log("antes del for");
-    for(let x=1;x<=21;x+=2){
+    for (let x = 1; x <= 21; x += 2) {
         console.log(x);
-    }        
+    }
     console.log("despues del for");
 }
