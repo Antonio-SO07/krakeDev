@@ -1,7 +1,7 @@
 let empleados = [
-    { cedula: "1714616123", nombre: "John", apellido: "Cena", sueldo: 500.0 },
-    { cedula: "0914632123", nombre: "Luisa", apellido: "Gonzalez", sueldo: 900.0 },
-    { cedula: "1750816322", nombre: "Alejo", apellido: "Salcedo", sueldo: 800.0 }
+    { cedula: "1714616123", nombre: "JOHN", apellido: "CENA", sueldo: 500.0 },
+    { cedula: "0914632123", nombre: "LUISA", apellido: "GONZALES", sueldo: 900.0 },
+    { cedula: "1750816322", nombre: "ALDIZZY", apellido: "ORTIZ", sueldo: 800.0 }
 ]
 
 let esNuevo = false;
@@ -229,4 +229,73 @@ limpiar = function () {
     esNuevo = false;
     deshabilitarComponentesEmpleado();
     habilitarComponente('txtBusquedaCedula');
+}
+
+buscarPorRol = function() {
+    let cedula = recuperarTexto('txtBusquedaCedulaRol');
+    let empleado = buscarEmpleado(cedula);
+
+    mostrarTexto('infoCedula', '');
+    mostrarTexto('infoNombre', '');
+    mostrarTexto('infoSueldo', '');
+    mostrarTextoEnCaja('txtDescuentos', '');
+    mostrarTexto('lblErrorDescuentos', '');
+    mostrarTexto('infoIESS', '0.0');
+    mostrarTexto('infoPago', '0.0');
+
+    if (empleado) {
+        mostrarTexto('infoCedula', empleado.cedula);
+        mostrarTexto('infoSueldo', empleado.sueldo.toFixed(2));
+        let nombreCompleto = empleado.nombre + " " + empleado.apellido;
+        mostrarTexto('infoNombre', nombreCompleto);
+    } else {
+        alert("EMPLEADO NO EXISTE");
+    }
+}
+
+calcularAporteEmpleado = function(sueldo) {
+    const PORCENTAJE_IESS = 0.0945;
+    return sueldo * PORCENTAJE_IESS;
+}
+
+calcularValorAPagar = function(sueldo, aporteIESS, descuento) {
+    return sueldo - aporteIESS - descuento;
+}
+
+calcularRol = function() {
+    mostrarTexto('lblErrorDescuentos', '');
+
+    let sueldo = recuperarFloatDiv('infoSueldo');
+    let descuentos = recuperarFloat('txtDescuentos');
+    let descuentosTexto = recuperarTexto('txtDescuentos');
+
+    if (isNaN(sueldo) || sueldo <= 0) {
+        alert("Primero debe buscar y cargar un empleado.");
+        return;
+    }
+    
+    let hayErrores = false;
+
+    if (descuentosTexto.trim() === '') {
+        mostrarTexto('lblErrorDescuentos', 'CAMPO OBLIGATORIO');
+        hayErrores = true;
+    } else if (isNaN(descuentos)) { 
+        mostrarTexto('lblErrorDescuentos', 'DEBE SER UN NÚMERO FLOTANTE');
+        hayErrores = true;
+    } else if (descuentos < 0 || descuentos > sueldo) {
+        mostrarTexto('lblErrorDescuentos', `ENTRE 0 Y ${sueldo.toFixed(2)} INCLUIDOS`);
+        hayErrores = true;
+    }
+
+    if (hayErrores) {
+        mostrarTexto('infoIESS', '0.0');
+        mostrarTexto('infoPago', '0.0');
+        return;
+    }
+
+    let aporteIESS = calcularAporteEmpleado(sueldo);
+    mostrarTexto('infoIESS', aporteIESS.toFixed(2));
+
+    let valorAPagar = calcularValorAPagar(sueldo, aporteIESS, descuentos);
+    mostrarTexto('infoPago', valorAPagar.toFixed(2));
 }
